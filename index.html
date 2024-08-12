@@ -44,47 +44,148 @@
     </style>
 </head>
 <body class="bg-white flex items-center justify-center h-screen font-mono">
-    <div class="bg-gray-100 p-8 rounded-lg shadow-lg max-w-sm w-full">
-        <div class="text-gray-800 text-center mb-4">Password Generator</div>
-        <div class="bg-gray-200 p-2 rounded mb-4 flex justify-between items-center">
+    <div class="bg-gray-100 p-10 rounded-lg shadow-lg max-w-lg w-full h-auto">
+        <div class="text-gray-800 text-center mb-4 text-3xl font-bold">Password Generator</div> <!-- Big Bold Heading -->
+        <div class="bg-gray-200 p-4 rounded mb-4 flex justify-between items-center">
             <input id="password" type="text" class="bg-transparent text-gray-900 w-full focus:outline-none" readonly>
             <button id="copyBtn" class="ml-2 text-blue-500">
-                <!-- Copy Icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-3.28A2 2 0 0113.4 4.92L12 3.75a2 2 0 00-1.4-.58H8a2 2 0 00-2 2v2zm2 2h8v10H10V9zm-4 0v2H5v10a2 2 0 002 2h8v-2H7v-8h1V9H6z" />
+                <!-- Your Custom SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5">
+                    <!-- Paste your SVG path data here -->
+                    <path d="M12 2C11.4 2 11 2.4 11 3V5H7C5.3 5 4 6.3 4 8V18C4 19.7 5.3 21 7 21H17C18.7 21 20 19.7 20 18V8C20 6.3 18.7 5 17 5H13V3C13 2.4 12.6 2 12 2ZM12 4H13V5H11V4H12ZM17 6C17.6 6 18 6.4 18 7V8H6V7C6 6.4 6.4 6 7 6H17ZM6 9H18V18C18 18.6 17.6 19 17 19H7C6.4 19 6 18.6 6 18V9Z" />
                 </svg>
             </button>
         </div>
         <div class="text-gray-800 mb-4">Character Length <span id="charLength" class="text-blue-500">8</span></div>
-        <input id="charRange" type="range" min="4" max="32" value="8" class="slider mb-4">
+        <input id="charRange" type="range" min="4" max="20" value="8" class="slider mb-4">
         
         <div class="space-y-4">
-            <label class="inline-flex items-center cursor-pointer">
+            <label class="flex items-center cursor-pointer">
                 <input type="checkbox" id="uppercase" class="sr-only peer">
                 <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                <span class="ms-3 text-sm font-medium text-black">Include Uppercase Letters</span>
+                <span class="ml-3 text-sm font-medium text-black">Include Uppercase Letters</span>
             </label>
-            <label class="inline-flex items-center cursor-pointer">
+            <label class="flex items-center cursor-pointer">
                 <input type="checkbox" id="lowercase" class="sr-only peer">
                 <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                <span class="ms-3 text-sm font-medium text-black">Include Lowercase Letters</span>
+                <span class="ml-3 text-sm font-medium text-black">Include Lowercase Letters</span>
             </label>
-            <label class="inline-flex items-center cursor-pointer">
+            <label class="flex items-center cursor-pointer">
                 <input type="checkbox" id="numbers" class="sr-only peer">
                 <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                <span class="ms-3 text-sm font-medium text-black">Include Numbers</span>
+                <span class="ml-3 text-sm font-medium text-black">Include Numbers</span>
             </label>
-            <label class="inline-flex items-center cursor-pointer">
+            <label class="flex items-center cursor-pointer">
                 <input type="checkbox" id="symbols" class="sr-only peer">
                 <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                <span class="ms-3 text-sm font-medium text-black">Include Symbols</span>
+                <span class="ml-3 text-sm font-medium text-black">Include Symbols</span>
             </label>
         </div>
         
-        <div id="strength" class="text-gray-800 text-center mt-4">STRENGTH</div>
+        <!-- Password Strength Indicator -->
+        <div class="text-gray-800 mt-4 mb-2 text-center">Password Strength</div>
+        <div id="strength" class="flex justify-center mt-2 space-x-2">
+            <div class="w-4 h-4 rounded-full bg-gray-300" id="strengthDot1"></div>
+            <div class="w-4 h-4 rounded-full bg-gray-300" id="strengthDot2"></div>
+            <div class="w-4 h-4 rounded-full bg-gray-300" id="strengthDot3"></div>
+            <div class="w-4 h-4 rounded-full bg-gray-300" id="strengthDot4"></div>
+        </div>
+
         <button id="generateBtn" class="bg-blue-500 text-white w-full py-2 mt-4 rounded hover:bg-blue-600 transition duration-300">GENERATE</button>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Function to generate password
+        function generatePassword(length, includeUppercase, includeLowercase, includeNumbers, includeSymbols) {
+            const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+            const numberChars = '0123456789';
+            const symbolChars = '!@#$%^&*()_+~`|}{[]:;?><,./-=';
+            
+            let allChars = '';
+            if (includeUppercase) allChars += uppercaseChars;
+            if (includeLowercase) allChars += lowercaseChars;
+            if (includeNumbers) allChars += numberChars;
+            if (includeSymbols) allChars += symbolChars;
+            
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                password += allChars.charAt(Math.floor(Math.random() * allChars.length));
+            }
+            
+            return password;
+        }
+
+        // Function to update strength indicator
+        function updateStrengthIndicator(strength) {
+            const dots = [
+                document.getElementById('strengthDot1'),
+                document.getElementById('strengthDot2'),
+                document.getElementById('strengthDot3'),
+                document.getElementById('strengthDot4')
+            ];
+            
+            dots.forEach(dot => dot.classList.add('bg-gray-300')); // Reset all dots
+            
+            if (strength > 0) {
+                dots[0].classList.replace('bg-gray-300', 'bg-red-500');
+            }
+            if (strength > 1) {
+                dots[1].classList.replace('bg-gray-300', 'bg-orange-500');
+            }
+            if (strength > 2) {
+                dots[2].classList.replace('bg-gray-300', 'bg-yellow-500');
+            }
+            if (strength > 3) {
+                dots[3].classList.replace('bg-gray-300', 'bg-green-500');
+            }
+            if (strength <= 0) {
+                dots[0].classList.replace('bg-red-500', 'bg-gray-300');
+            }
+            if (strength <= 1) {
+                dots[1].classList.replace('bg-orange-500', 'bg-gray-300');
+            }
+            if (strength <= 2) {
+                dots[2].classList.replace('bg-yellow-500', 'bg-gray-300');
+            }
+            if (strength <= 3) {
+                dots[3].classList.replace('bg-green-500', 'bg-gray-300');
+            }
+        }
+
+        document.getElementById('charRange').addEventListener('input', function() {
+            document.getElementById('charLength').textContent = this.value;
+        });
+
+        document.getElementById('generateBtn').addEventListener('click', () => {
+            const length = document.getElementById('charRange').value;
+            const includeUppercase = document.getElementById('uppercase').checked;
+            const includeLowercase = document.getElementById('lowercase').checked;
+            const includeNumbers = document.getElementById('numbers').checked;
+            const includeSymbols = document.getElementById('symbols').checked;
+
+            const password = generatePassword(length, includeUppercase, includeLowercase, includeNumbers, includeSymbols);
+            document.getElementById('password').value = password;
+
+            // Reset strength to zero before recalculating
+            let strength = 0;
+            
+            // Determine strength based on included character types
+            if (includeUppercase) strength++;
+            if (includeLowercase) strength++;
+            if (includeNumbers) strength++;
+            if (includeSymbols) strength++;
+
+            // Update the strength indicator
+            updateStrengthIndicator(strength);
+        });
+
+
+        document.getElementById('copyBtn').addEventListener('click', () => {
+            const password = document.getElementById('password');
+            password.select();
+            document.execCommand('copy');
+        });
+    </script>
 </body>
 </html>
